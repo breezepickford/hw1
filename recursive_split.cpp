@@ -15,15 +15,25 @@ void split (Node*& in, Node*& odds, Node*& evens) {
     evens = nullptr;
     return;
    }
-        if (head odd) {
 
+    bool isEven = false;
+    if (in->value % 2 == 0) {
+        isEven = true;
+    }
+        if (isEven) {
+            //even list ptr holds the in ptr
+            evens = in;
+            //recursive call to get next in
+            split(in->next, odds, evens->next);
         }
-        if (head even) {
-
+        else {
+            //odd list ptr now holds the in ptr
+            odds = in;
+            //recursive call to get next in
+            split(in->next, odds->next, evens);
         }
-        //recursive call to get next in
-        split(in->next, odds->next, evens);
         
+
     return 0;
 }
 
