@@ -16,10 +16,12 @@ void split (Node*& in, Node*& odds, Node*& evens) {
     return;
    }
 
+    //is the in value even or not?
     bool isEven = false;
     if (in->value % 2 == 0) {
         isEven = true;
     }
+    
         if (isEven) {
             //even list ptr holds the in ptr
             evens = in;
