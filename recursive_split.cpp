@@ -1,3 +1,4 @@
+#include <iostream>
 #include split.h
 
 struct Node {
@@ -7,24 +8,29 @@ struct Node {
 
 void split (Node*& in, Node*& odds, Node*& evens) {
    
-   
-   if (next exists) {
+    //if empty (list DNE or finished reccursion)
+   if (in == nullptr) {
+    //set odds and evens to null
+    odds = nullptr;
+    evens = nullptr;
+    return;
+   }
         if (head odd) {
 
         }
         if (head even) {
 
         }
-        //recursive
-        //get next in
-   }
-    //set in to null
-    //odds point to head of linked list
-    //even points to head of linked list
+        //recursive call to get next in
+        split(in->next, odds->next, evens);
+        
     return 0;
 }
 
+//clear memory
+void deleteList(Node*& head) {
 
+}
 
 int main() {
     //call recursive funct
