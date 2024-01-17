@@ -1,10 +1,12 @@
-#include <iostream>
+//edstem said to remove the #include iostream bit bc it causes a loop in the grading
 #include split.h
 
 struct Node {
     int value;
     Node *next;
 }
+
+//TODO: add function for list
 
 void split (Node*& in, Node*& odds, Node*& evens) {
    
@@ -21,7 +23,7 @@ void split (Node*& in, Node*& odds, Node*& evens) {
     if (in->value % 2 == 0) {
         isEven = true;
     }
-    
+
         if (isEven) {
             //even list ptr holds the in ptr
             evens = in;
@@ -46,7 +48,14 @@ void deleteList(Node*& head) {
 
 int main() {
     //call recursive funct
-    split(headptr, odd, even);
+
+    //cin???
+    //given??
+    //include file??
+    //how are we getting this 'in' list. 
+    //odd and evens list are just empty and null when called dw
+
+    split (Node*& in, Node*& odds, Node*& evens);
 
     return 0;
 }
