@@ -1,14 +1,9 @@
-//edstem said to remove the #include iostream bit bc it causes a loop in the grading
-#include split.h
+//edstem said to remove the #include iostream bit bc it causes a loop in the grading 
+//but it wont build properly without it?
+#include <iostream>
+#include "split.cpp"
 
-struct Node {
-    int value;
-    Node *next;
-}
-
-//TODO: add function for list
-
-void split (Node*& in, Node*& odds, Node*& evens) {
+void split(Node*& in, Node*& odds, Node*& evens) {
    
     //if empty (list DNE or finished reccursion)
    if (in == nullptr) {
@@ -38,8 +33,6 @@ void split (Node*& in, Node*& odds, Node*& evens) {
         }
         
         in = nullptr;
-
-    return 0;
 }
 
 //clear memory
@@ -63,6 +56,8 @@ int main() {
     split (in, odds, evens);
 
     //make pushback function for node struct in global
+
+    //print lists to make sure sorted
 
     //once sorted...
     //delete odd list
