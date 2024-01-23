@@ -2,6 +2,16 @@
 //but it wont build properly without it?
 #include <iostream>
 #include "split.cpp"
+using namespace std;
+
+void printL(const Node* in) {
+    const Node* current = in;
+    while (current != nullptr) {
+        cout << current->value << " ";
+        current = current->next;
+    }
+    cout << endl;
+}
 
 void split(Node*& in, Node*& odds, Node*& evens) {
    
@@ -33,11 +43,16 @@ void split(Node*& in, Node*& odds, Node*& evens) {
         }
         
         in = nullptr;
+        return;
 }
 
 //clear memory
-void deleteList(Node*& head) {
-    //do this function if problems with valgrinf
+void deleteList(Node*& in) {
+    while (in != nullptr) {
+        Node* temp = in;
+        in = in->next;
+        delete temp;
+    }
 }
 
 int main() {
@@ -52,16 +67,29 @@ int main() {
     Node* odds = nullptr;
     Node* evens = nullptr;
 
+    cout << "og list pre sorting" << endl;
+    printL(in);
     //call recursive funct
     split (in, odds, evens);
 
     //make pushback function for node struct in global
 
     //print lists to make sure sorted
+    cout << "og list after sorting" << endl;
+    printL(in);
+    
+    cout << "evens list" << endl;
+    printL(evens);
 
+    cout << "odds list" << endl;
+    printL(odds);
+    
     //once sorted...
     //delete odd list
     //delete even list
+
+    deleteList(odds);
+    deleteList(evens);
 
     return 0;
 }
