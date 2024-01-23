@@ -12,6 +12,7 @@ g++ split.cpp test_split.cpp -o test_split
 #include "split.h"
 using namespace std;
 
+//all done!!!!
 //print list
 void printL(const Node* in) { //const bc when we are printing we do NOT want to change our arguments
     const Node* current = in;
@@ -34,7 +35,6 @@ void deleteList(Node*& in) {
 
 int main(int argc, char* argv[])
 {
-    //how are we getting this 'in' list. 
     //odd and evens list are just empty and null when called dw
 
     //init SE Linked list here
