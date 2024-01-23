@@ -12,7 +12,8 @@ g++ split.cpp test_split.cpp -o test_split
 #include "split.h"
 using namespace std;
 
-void printL(const Node* in) {
+//print list
+void printL(const Node* in) { //const bc when we are printing we do NOT want to change our arguments
     const Node* current = in;
     while (current != nullptr) {
         cout << current->value << " ";
@@ -22,6 +23,7 @@ void printL(const Node* in) {
 
 }
 
+//delete list func to prevent memory problems
 void deleteList(Node*& in) {
     while (in != nullptr) {
         Node* temp = in;
@@ -36,7 +38,7 @@ int main(int argc, char* argv[])
     //odd and evens list are just empty and null when called dw
 
     //init SE Linked list here
-    Node* in = new Node{1, new Node{2, new Node{3, new Node{4, nullptr}}}};
+    Node* in = new Node{5, new Node{7, new Node{4, new Node{2, nullptr}}}};
 
     Node* odds = nullptr;
     Node* evens = nullptr;

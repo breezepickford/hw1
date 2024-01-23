@@ -22,9 +22,6 @@ void split(Node*& in, Node*& odds, Node*& evens)
    
     //if empty (list DNE or finished reccursion)
    if (in == nullptr) {
-    //set odds and evens to null
-    odds = nullptr;
-    evens = nullptr;
     return;
    }
 
@@ -34,17 +31,25 @@ void split(Node*& in, Node*& odds, Node*& evens)
         isEven = true;
     }
 
+//change value, change point
+
+//make temp vars init nullptr 
+
         if (isEven) {
             //even list ptr holds the in ptr
             evens = in;
+            in = in->next;
+            evens->next = nullptr;
             //recursive call to get next in
-            split(in->next, odds, evens->next);
+            split(in, odds, evens->next);
         }
         else {
             //odd list ptr now holds the in ptr
             odds = in;
+            in = in->next;
+            odds->next=nullptr;
             //recursive call to get next in
-            split(in->next, odds->next, evens);
+            split(in, odds->next, evens);
         }
         
         in = nullptr;
