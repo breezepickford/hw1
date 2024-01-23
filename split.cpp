@@ -18,6 +18,38 @@ void split(Node*& in, Node*& odds, Node*& evens)
 {
   /* Add code here */
 // WRITE YOUR CODE HERE
+
+   
+    //if empty (list DNE or finished reccursion)
+   if (in == nullptr) {
+    //set odds and evens to null
+    odds = nullptr;
+    evens = nullptr;
+    return;
+   }
+
+    //is the in value even or not?
+    bool isEven = false;
+    if (in->value % 2 == 0) {
+        isEven = true;
+    }
+
+        if (isEven) {
+            //even list ptr holds the in ptr
+            evens = in;
+            //recursive call to get next in
+            split(in->next, odds, evens->next);
+        }
+        else {
+            //odd list ptr now holds the in ptr
+            odds = in;
+            //recursive call to get next in
+            split(in->next, odds->next, evens);
+        }
+        
+        in = nullptr;
+        return;
+
 }
 
 /* If you needed a helper function, write it here */
