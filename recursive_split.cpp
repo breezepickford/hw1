@@ -37,25 +37,36 @@ void split (Node*& in, Node*& odds, Node*& evens) {
             split(in->next, odds->next, evens);
         }
         
+        in = nullptr;
 
     return 0;
 }
 
 //clear memory
 void deleteList(Node*& head) {
-
+    //do this function if problems with valgrinf
 }
 
 int main() {
-    //call recursive funct
 
-    //cin???
-    //given??
-    //include file??
+
     //how are we getting this 'in' list. 
     //odd and evens list are just empty and null when called dw
 
-    split (Node*& in, Node*& odds, Node*& evens);
+    //init SE Linked list here
+    Node* in = new Node{1, new Node{2, new Node{3, new Node{4, nullptr}}}};
+
+    Node* odds = nullptr;
+    Node* evens = nullptr;
+
+    //call recursive funct
+    split (in, odds, evens);
+
+    //make pushback function for node struct in global
+
+    //once sorted...
+    //delete odd list
+    //delete even list
 
     return 0;
 }
