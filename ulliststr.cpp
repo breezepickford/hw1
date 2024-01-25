@@ -35,21 +35,40 @@ size_t ULListStr::size() const
 //add to back of list
 void push_back(const std::string& val) {
   //BRAINSTORM PLAN
-  
-  //if list is completely empty
-      //create a new node and make this both the head and the tail bc theres nothing else in the list
-      //make it hold the value u passed in
-      //update the last index
+  //if the list is empty (no head)
+  if(!head) { 
+    //create a new node and make this both the head and the tail bc 
+    //theres nothing else in the list
+    head_ = new Item(); 
+    tail_ = head_;
+    //make it hold the value u passed in
+    head_->val[0] = val;
+    //update the last filled index
+    head_->last = 1;
+  }
   //else if the list has nodes, but the last node is full (10/10 values filled)
-      //create a new node, give it the value passed in
-      //make this new nodes next pointer point to null bc its at the back
-      //make this new nodes prev point to the previous tail
-      //make this new node the tail node
-      //update the last index
+  else if (tail->last == ARRSIZE) { 
+    //create a new node, & give it the value passed in
+    Item* newN = new Item(); 
+    newN->val[0] = val;
+    //update the last filled index
+    newN->last = 1;
+    //make this new nodes prev point to the previous tail 
+    newN->prev = tail_;
+    //make prev tail point to new node
+    tail_->next = newN;
+    //make this new node the tail node
+    tail_= newN;
+  }
   //else if the list has nodes but the last node isnt full
-      //add the value to the last node
-      //update the last index
-
+  else if (tail_->last < ARRSIZE){
+    //add the value to the last node
+    tail_->val[tail_->last] = val;
+    //update the last index
+    tail_->last++;
+  }
+  //increase the size of the ULL by 1 bc we just added to it
+  size_++;
 }
 
 void pop_back() {
