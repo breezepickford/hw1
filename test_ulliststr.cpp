@@ -5,6 +5,7 @@
 
 #include "ulliststr.h"
 
+//write MAIN stuff here (call function)
 //Use this file to test your ulliststr implementation before running the test suite
 
 int main(int argc, char* argv[])
