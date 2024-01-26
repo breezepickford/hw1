@@ -38,7 +38,7 @@ void push_back(const std::string& val) {
   //if the list is empty (no head)
   if(!head) { 
     //create a new node and make this both the head and the tail bc 
-    //theres nothing else in the list
+    //there's nothing else in the list
     head_ = new Item(); 
     tail_ = head_;
     //make it hold the value u passed in
@@ -73,19 +73,39 @@ void push_back(const std::string& val) {
 
 void pop_back() {
   //BRAINSTORM PLAN
-
-  //if list empty, do nothing or maybe tell the user smth. and return
-  //if last node not empty
-    //decrement the last index
-  //else if last node empty
-    //decrement and save as temp val
-    //delete old tail
-    //make temp val new tail
-    //if the list still has items after deleting the tail,
-        //update tail's next to point to nullptr
-    //if the list is now empty after deleting tail
-        //update head to be nullptr
-
+    //if list empty, do nothing or maybe tell the user smth. and return
+    if (!head) {
+      return;
+    }
+    //if last node NOT empty
+    if (tail_ ->last > 0) {
+      //decrement the last index
+      tail_->last--;
+      //do i need to delete the memory of the old tail?? COME BACK TO THIS
+    }
+    //else if last node empty
+    else {
+      if (tail_->prev != nullptr) {
+        //make temp old tail
+        Item* temp = tail_;
+        //make tail previous node
+        tail_ = tail_->prev;
+        //delete old tail
+        delete temp;
+        //point new tails next to null
+        tail_->next = nullptr;
+      }
+      //else if only one node left
+      else {
+        //delete tail (empties list)
+        delete tail_;
+        //set head and tail to null bc list now empty
+        head_ = nullptr;
+        tail_=nullptr;
+      }
+    }
+    //reduce list size
+    size_--;
 }
 
 void ULListStr::set(size_t loc, const std::string& val)
