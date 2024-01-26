@@ -36,7 +36,7 @@ size_t ULListStr::size() const
 void push_back(const std::string& val) {
   //BRAINSTORM PLAN
   //if the list is empty (no head)
-  if(!head) { 
+  if(!head_) { 
     //create a new node and make this both the head and the tail bc 
     //there's nothing else in the list
     head_ = new Item(); 
@@ -47,7 +47,7 @@ void push_back(const std::string& val) {
     head_->last = 1;
   }
   //else if the list has nodes, but the last node is full (10/10 values filled)
-  else if (tail->last == ARRSIZE) { 
+  else if (tail_->last == ARRSIZE) { 
     //create a new node, & give it the value passed in
     Item* newN = new Item(); 
     newN->val[0] = val;
@@ -74,7 +74,7 @@ void push_back(const std::string& val) {
 void pop_back() {
   //BRAINSTORM PLAN
     //if list empty, do nothing or maybe tell the user smth. and return
-    if (!head) {
+    if (!head_) {
       return;
     }
     //if last node NOT empty
@@ -117,7 +117,7 @@ void pop_back() {
    */
 void push_front(const std::string& val) {
   //if list empty
-    if (!head) {
+    if (!head_) {
       //make a new item to put as head
       head_= new Item();
       //since theres only 1 thing in the list, this is also the tail
@@ -129,11 +129,11 @@ void push_front(const std::string& val) {
       head_->last = 1;
     }
     //if list not empty, but room exists in first node
-    else if (head->last < ARRSIZE) {
+    else if (head_->last < ARRSIZE) {
       //increase heads last value by 1
-      head_->(++last);
+      head_->last++;
       //fill last space in with new value
-      head_->val[last] = val;
+      head_->val[tail->last] = val;
     }
     //if list not empty and NO room in first node
     else {
