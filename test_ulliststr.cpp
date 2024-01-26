@@ -20,6 +20,9 @@ int main(int argc, char* argv[])
     std::cout << "index 0: " << Breeze_list.get(0) << std::endl;
     std::cout << std::endl;
     std::cout << std::endl;
+    //not able to 'get' values wher eindex hasnt been filled yet, 
+    // bc program aborts and throws and error.
+    // not sure if supposed to do this. come back to later.
 
     Breeze_list.push_back("p");
     std::cout << "pushed back p" << std::endl;
@@ -75,7 +78,12 @@ int main(int argc, char* argv[])
     //remove r
     Breeze_list.pop_back(); 
 
-    //test size 
+    //front should print i
+    std::cout << "Front: " << Breeze_list.front() << std::endl;
+    //back should print e
+    std::cout << "Back: " << Breeze_list.back() << std::endl;
+
+    //test size should print 3
     std::cout << "Size: " << Breeze_list.size() << std::endl;
 
     //test get
