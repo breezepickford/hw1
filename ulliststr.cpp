@@ -29,8 +29,8 @@ size_t ULListStr::size() const
 // WRITE YOUR CODE HERE
 //FIXME: WHEN TESTING/BUILDING make sure ot be in the correct docker folder!!!!!
 
-//TODO: BRAINSTORM pop_front, back, front and getValAtLoc
-//done:  push_back, pop_back, push_front
+//TODO: BRAINSTORM back, front, and getValAtLoc
+//done:  push_back, pop_back, push_front, pop_front
 
 //add to back of list
 void push_back(const std::string& val) {
@@ -183,6 +183,28 @@ void push_front(const std::string& val) {
     //decrement the size of the LL bc we removed a value
     size_--; 
   }
+
+/**
+   * Returns a const reference to the front element
+   *   - MUST RUN in O(1)
+   */
+std::string const & front() const {
+  //if list is empty (head DNE)  OR if the first index of head is the same as last (head doesnt hold anything)
+  if (head_ == nullptr || head_->first >= head_ ->last) {
+    return NULL;
+  }
+  return head_->val[head_->first];
+}
+
+std::string const & ULListStr::back() const {
+    //if empty
+    if (head_ == nullptr) {
+        return NULL;
+    }
+    //return last element in the last node
+    //tails value at last index - 1
+    return tail_->val[tail_->last - 1];
+}
 
 void ULListStr::set(size_t loc, const std::string& val)
 {
