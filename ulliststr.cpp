@@ -33,7 +33,7 @@ size_t ULListStr::size() const
 //done:  push_back, pop_back, push_front, pop_front
 
 //add to back of list
-void push_back(const std::string& val) {
+void ULListStr::push_back(const std::string& val) {
   //BRAINSTORM PLAN
   //if the list is empty (no head)
   if(!head_) { 
@@ -71,7 +71,7 @@ void push_back(const std::string& val) {
   size_++;
 }
 
-void pop_back() {
+void ULListStr::pop_back() {
   //BRAINSTORM PLAN
     //if list empty, do nothing or maybe tell the user smth. and return
     if (!head_) {
@@ -115,7 +115,7 @@ void pop_back() {
    * allocate a new head node.
    *   - MUST RUN in O(1)
    */
-void push_front(const std::string& val) {
+void ULListStr::push_front(const std::string& val) {
   //if list empty
     if (!head_) {
       //make a new item to put as head
@@ -133,7 +133,7 @@ void push_front(const std::string& val) {
       //increase heads last value by 1
       head_->last++;
       //fill last space in with new value
-      head_->val[tail->last] = val;
+      head_->val[tail_->last] = val;
     }
     //if list not empty and NO room in first node
     else {
@@ -159,7 +159,7 @@ void push_front(const std::string& val) {
    * Removes a value from the front of the list
    *   - MUST RUN in O(1)
    */
-  void pop_front() {
+  void ULListStr::pop_front() {
     //if list is empty
     if(!head_) {
       return;
@@ -188,7 +188,7 @@ void push_front(const std::string& val) {
    * Returns a const reference to the front element
    *   - MUST RUN in O(1)
    */
-std::string const & front() const {
+std::string const & ULListStr::front() const {
   //if list is empty (head DNE)  OR if the first index of head is the same as last (head doesnt hold anything)
   if (head_ == nullptr || head_->first >= head_ ->last) {
     return NULL;
