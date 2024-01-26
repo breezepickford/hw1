@@ -155,6 +155,35 @@ void push_front(const std::string& val) {
     size_++;
 }
 
+/**
+   * Removes a value from the front of the list
+   *   - MUST RUN in O(1)
+   */
+  void pop_front() {
+    //if list is empty
+    if(!head_) {
+      return;
+    }
+    //if first node has more than 1 value (ex: 0 < 1-1  or 0 < 0 -1 (false) vs 0 < 2-1 (true))
+    if (head_->first < head_->last - 1) {
+      //increment the first index to hold second vals location (get rid of that first val)
+      //maybe this logic doesnt work  in every case .. come back and check this. 
+      //does first need to always be 0 in any other situation???
+      head_->first++;
+    }
+    //else if the first node only has 1 value
+    else {
+      //make temp item hold old head
+      Item* temp = head_;
+      //head is now the following node (new head is second node!)
+      head_ = head_->next;
+      //delete old head
+      delete temp;
+    }
+    //decrement the size of the LL bc we removed a value
+    size_--; 
+  }
+
 void ULListStr::set(size_t loc, const std::string& val)
 {
   std::string* ptr = getValAtLoc(loc);
