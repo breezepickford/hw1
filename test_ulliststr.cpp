@@ -24,6 +24,12 @@ int main(int argc, char* argv[])
     //test size, should print 5
     std::cout << "Size: " << Breeze_list.size() << std::endl;
 
+    std::cout << "index 0: " << Breeze_list.get(0) << std::endl;
+    std::cout << "index 1: " << Breeze_list.get(1) << std::endl;
+    std::cout << "index 2: " << Breeze_list.get(2) << std::endl;
+    std::cout << "index 3: " << Breeze_list.get(3) << std::endl;
+    std::cout << "index 4: " << Breeze_list.get(4) << std::endl;
+
     //front should print p
     std::cout << "Front: " << Breeze_list.front() << std::endl;
     //back should print r
@@ -39,9 +45,9 @@ int main(int argc, char* argv[])
 
     //test get
     //should print i
-    std::cout << "Val at ind 0" << Breeze_list.get(0) << std::endl;
+    std::cout << "Val at ind 0: " << Breeze_list.get(0) << std::endl;
     //should print p
-    std::cout << "Val at ind 1" << Breeze_list.get(1) << std::endl;
+    std::cout << "Val at ind 1: " << Breeze_list.get(1) << std::endl;
 
     //test set
     Breeze_list.set(1,"Q");
