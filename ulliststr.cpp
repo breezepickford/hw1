@@ -119,26 +119,38 @@ void ULListStr::push_front(const std::string& val) {
   //if list empty, create new head node
   if (!head_) {
     head_ = new Item();
+    //make the tail also the head bc the list only has this 1 new node
     tail_ = head_;
+    //give it the value passed in
     head_->val[0] = val;
+    //give it the first and last size that indicate it only holds 1 thing
     head_->first = 0;
     head_->last = 1;
   }
   //if room before the 'first' value in head node
   else if (head_->first > 0) {
+    //decremenet heads first value so its before whats alr there (ex: 0 now is -1)
     head_->first--;
+    //point heads value at heads new first index to be the value passed in at this now earlier index
     head_->val[head_->first] = val;
   }
   //if head node is full, create new head node
   else {
+    //make new head node
     Item* newHead = new Item();
+    //point new heads next to old head, so that old head is the 2nd item
     newHead->next = head_;
+    //point old heads prev to new head 
     head_->prev = newHead;
+    //make new head the head
     head_ = newHead;
+    //give heafs first array index the value passed in
     head_->val[0] = val;
+    //make it so head only holds one item (first is 0, last is 1)
     head_->first = 0;
     head_->last = 1;
   }
+  //increase size bc we just added a value to list
   size_++;
 }
 
