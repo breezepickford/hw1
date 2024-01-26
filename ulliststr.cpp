@@ -29,8 +29,8 @@ size_t ULListStr::size() const
 // WRITE YOUR CODE HERE
 //FIXME: WHEN TESTING/BUILDING make sure ot be in the correct docker folder!!!!!
 
-//TODO: BRAINSTORM push_front, pop_front, back, front and getValAtLoc
-//Brainstorm done:  push_back, pop_back
+//TODO: BRAINSTORM pop_front, back, front and getValAtLoc
+//done:  push_back, pop_back, push_front
 
 //add to back of list
 void push_back(const std::string& val) {
