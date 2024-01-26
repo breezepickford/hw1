@@ -206,6 +206,34 @@ std::string const & ULListStr::back() const {
     return tail_->val[tail_->last - 1];
 }
 
+std::string* ULListStr::getValAtLoc(size_t loc) const {
+  // heck if loc is a valid index
+  if (loc >= size_) {
+    return nullptr; // invalid location, return nullptr
+  }
+
+  //start from the head andgo thry the list to find the item at loc
+  Item* current = head_;
+  size_t currentSize = current->last - current->first;
+
+  while (loc >= currentSize) {
+    //move to the next item in the list
+    //make loc smaller by current size
+    loc -= currentSize;
+    //move to next item
+    current = current->next;
+    //update size of curr item
+    currentSize = current->last - current->first;
+  }
+
+  // atp current points to item that contains the desired value
+  // calculate the index within the 'val' array of this item
+  size_t indexWithinItem = current->first + loc;
+
+  // return a pointer to the desired value within the val array
+  return &(current->val[indexWithinItem]);
+}
+
 void ULListStr::set(size_t loc, const std::string& val)
 {
   std::string* ptr = getValAtLoc(loc);
