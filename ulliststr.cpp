@@ -116,44 +116,32 @@ void ULListStr::pop_back() {
    *   - MUST RUN in O(1)
    */
 void ULListStr::push_front(const std::string& val) {
-  //if list empty
-    if (!head_) {
-      //make a new item to put as head
-      head_= new Item();
-      //since theres only 1 thing in the list, this is also the tail
-      tail_ = head_;
-      //put the value in new nodes first index
-      head_->val[0] = val;
-      //make this node have 1 value filled in
-      head_->first = 0;
-      head_->last = 1;
-    }
-    //if list not empty, but room exists in first node
-    else if (head_->last < ARRSIZE) {
-      //increase heads last value by 1
-      head_->last++;
-      //fill last space in with new value
-      head_->val[tail_->last] = val;
-    }
-    //if list not empty and NO room in first node
-    else {
-      //make new node to put in front
-      Item* newHead = new Item();
-      //point new heads next to old head
-      newHead->next = head_;
-      //point old heads prev to new head
-      head_->prev = newHead;
-      //make head the new head
-      head_ = newHead;
-      //put value in heads first index
-      head_->val[0] = val;
-      //make this node have 1 value filled in
-      head_->first = 0;
-      head_->last = 1;
-    }
-    //increase size of LL by 1 bc we just added a value (remeber size represents values not number of nodes)
-    size_++;
+  //if list empty, create new head node
+  if (!head_) {
+    head_ = new Item();
+    tail_ = head_;
+    head_->val[0] = val;
+    head_->first = 0;
+    head_->last = 1;
+  }
+  //if room before the 'first' value in head node
+  else if (head_->first > 0) {
+    head_->first--;
+    head_->val[head_->first] = val;
+  }
+  //if head node is full, create new head node
+  else {
+    Item* newHead = new Item();
+    newHead->next = head_;
+    head_->prev = newHead;
+    head_ = newHead;
+    head_->val[0] = val;
+    head_->first = 0;
+    head_->last = 1;
+  }
+  size_++;
 }
+
 
 /**
    * Removes a value from the front of the list

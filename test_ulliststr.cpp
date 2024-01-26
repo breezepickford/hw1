@@ -16,10 +16,45 @@ int main(int argc, char* argv[])
     //fill with piper (my sisters name)
    
     Breeze_list.push_back("i");
+    std::cout << "pushed back i" << std::endl;
+    std::cout << "index 0: " << Breeze_list.get(0) << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
     Breeze_list.push_back("p");
+    std::cout << "pushed back p" << std::endl;
+    std::cout << "index 0: " << Breeze_list.get(0) << std::endl;
+    std::cout << "index 1: " << Breeze_list.get(1) << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
     Breeze_list.push_back("e");
+    std::cout << "pushed back e" << std::endl;
+    std::cout << "index 0: " << Breeze_list.get(0) << std::endl;
+    std::cout << "index 1: " << Breeze_list.get(1) << std::endl;
+    std::cout << "index 2: " << Breeze_list.get(2) << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
     Breeze_list.push_back("r");
+    std::cout << "pushed back r" << std::endl;
+    std::cout << "index 0: " << Breeze_list.get(0) << std::endl;
+    std::cout << "index 1: " << Breeze_list.get(1) << std::endl;
+    std::cout << "index 2: " << Breeze_list.get(2) << std::endl;
+    std::cout << "index 3: " << Breeze_list.get(3) << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
     Breeze_list.push_front("P");
+    std::cout << "pushed front P" << std::endl;
+    std::cout << "index 0: " << Breeze_list.get(0) << std::endl;
+    std::cout << "index 1: " << Breeze_list.get(1) << std::endl;
+    std::cout << "index 2: " << Breeze_list.get(2) << std::endl;
+    std::cout << "index 3: " << Breeze_list.get(3) << std::endl;
+    std::cout << "index 4: " << Breeze_list.get(4) << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
 
     //test size, should print 5
     std::cout << "Size: " << Breeze_list.size() << std::endl;
